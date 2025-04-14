@@ -5,19 +5,32 @@ import pandas as pd
 import re
 
 # Read Snowflake password
-with open("G:\\Logistics\\Admin\\Bart\\Cust_Move\\SnowflakePassPy.txt", "r") as snowpass:
-    PW = snowpass.read()
+# with open("G:\\Logistics\\Admin\\Bart\\Cust_Move\\SnowflakePassPy.txt", "r") as snowpass:
+#     PW = snowpass.read()
 
-# Establish Snowflake connection
+# # Establish Snowflake connection
+# engine = create_engine(
+#     URL(
+#         account='usfoods',
+#         user='BXW6026',
+#         password=PW,
+#         database='SUPPLY_CHAIN',
+#         schema='LOGISTICS',
+#         warehouse='USER_ADHOC',
+#         role='SUPPLY_CHAIN'
+#     )
+# )
+
+# Establish Snowflake connection using secrets
 engine = create_engine(
     URL(
-        account='usfoods',
-        user='BXW6026',
-        password=PW,
-        database='SUPPLY_CHAIN',
-        schema='LOGISTICS',
-        warehouse='USER_ADHOC',
-        role='SUPPLY_CHAIN'
+        account=st.secrets["snowflake"]["account"],
+        user=st.secrets["snowflake"]["user"],
+        password=st.secrets["snowflake"]["password"],
+        database=st.secrets["snowflake"]["database"],
+        schema=st.secrets["snowflake"]["schema"],
+        warehouse=st.secrets["snowflake"]["warehouse"],
+        role=st.secrets["snowflake"]["role"]
     )
 )
 
