@@ -1,0 +1,11 @@
+numpy
+pandas
+scipy
+matplotlib
+streamlit
+pandas-profiling
+streamlit-pandas-profiling
+openpyxl
+xlrd
+sqlalchemy
+snowflake-sqlalchemy
